@@ -130,13 +130,7 @@ impl CipherManager {
     if self.newest_processed_nonce.is_none() {
       self.newest_processed_nonce = Some(wrapped_big_nonce);
     } else if wrapped_big_nonce > self.newest_processed_nonce.unwrap() {
-      let oldest_missing_nonce = {
-        if wrapped_big_nonce > MAX_MISSING_NONCES {
-          wrapped_big_nonce - MAX_MISSING_NONCES
-        } else {
-          0u64
-        }
-      };
+      let oldest_missing_nonce = wrapped_big_nonce.saturating_sub(MAX_MISSING_NONCES);
 
       while !self.missing_nonces.is_empty()
         && self.missing_nonces.front().unwrap() < &oldest_missing_nonce
