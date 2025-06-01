@@ -914,7 +914,20 @@ impl DaveSession {
       decryptor.transition_to_key_ratchet(ratchet);
     }
 
-    // TODO remove old decryptors
+    // Remove old decryptors
+    let current_members: Vec<u64> = group
+      .members()
+      .map(|member| {
+        u64::from_be_bytes(
+          member
+            .credential
+            .serialized_content()
+            .try_into()
+            .unwrap_or([0, 0, 0, 0, 0, 0, 0, 0]),
+        )
+      })
+      .collect();
+    self.decryptors.retain(|&uid, _| current_members.contains(&uid));
 
     // Update encryptor
     let user_id = self.user_id_as_u64()?;

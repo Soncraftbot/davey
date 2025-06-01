@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Using `DAVESession.canPassthrough` on a user ID that doesn't have a decryptor now just returns `false` instead of throwing an error.
 - Fixed return type for `DAVESession.getVerificationCode`.
+- Decryptors of users that have left the group will now be removed rather than retained.
 
 ## [0.1.3] - 2025-05-27
 

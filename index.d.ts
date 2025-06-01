@@ -87,7 +87,7 @@ export declare class DAVESession {
    * This is the equivalent of `generateDisplayableCode(getPairwiseFingerprint(0, userId), 45, 5)`.
    * @see https://daveprotocol.com/#displayable-codes
    */
-  getVerificationCode(userId: string): Promise<Buffer>
+  getVerificationCode(userId: string): Promise<string>
   /**
    * Create a pairwise fingerprint of you and another member.
    * @see https://daveprotocol.com/#verification-fingerprint
