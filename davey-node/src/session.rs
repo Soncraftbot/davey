@@ -138,7 +138,7 @@ impl DaveSession {
     self.inner.ciphersuite() as u16
   }
 
-  /// Session status as a number (matches the JS enum in the old bindings).
+  /// The current status of the session.
   #[napi(getter)]
   pub fn status(&self) -> SessionStatus {
     self.inner.status()
@@ -199,7 +199,7 @@ impl DaveSession {
     Ok(Buffer::from(key_package))
   }
 
-  /// Process proposals from an opcode 27 payload.
+  /// Process proposals from the voice server.
   /// @param operationType The operation type of the proposals.
   /// @param proposals The vector of proposals or proposal refs of the payload. (depending on operation type)
   /// @param recognizedUserIds The recognized set of user IDs gathered from the voice gateway. Recommended to set so that incoming users are checked against.
@@ -427,7 +427,8 @@ impl DaveSession {
       .unwrap_or_default()
   }
 
-  /// Check whether this user's key ratchet is in passthrough mode
+  /// Check whether this user's decryptor is in passthrough mode.
+  /// If passthrough mode is enabled, then unencrypted packets are allowed to be passed through the decryptor.
   /// @param userId The user ID
   #[napi]
   pub fn can_passthrough(&self, user_id: String) -> napi::Result<bool> {
@@ -440,7 +441,7 @@ impl DaveSession {
 
   /// Set whether passthrough mode is enabled on all decryptors.
   /// @param passthroughMode Whether to enable passthrough mode
-  /// @param [transition_expiry=10] The transition expiry (in seconds) to use when disabling passthrough mode, defaults to 10 seconds
+  /// @param [transitionExpiry=10] The transition expiry (in seconds) to use when disabling passthrough mode, defaults to 10 seconds
   #[napi]
   pub fn set_passthrough_mode(&mut self, passthrough_mode: bool, transition_expiry: Option<u32>) {
     self

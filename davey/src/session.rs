@@ -64,6 +64,8 @@ fn dave_protocol_version_to_capabilities(
 #[cfg_attr(feature = "napi", napi)]
 pub const DAVE_PROTOCOL_VERSION: u16 = 1;
 
+/// The operation type of the proposals payload.
+/// @see https://daveprotocol.com/#dave_mls_proposals-27
 #[cfg_attr(feature = "napi", napi)]
 #[cfg_attr(feature = "pyo3", pyclass(eq, eq_int, rename_all = "snake_case"))]
 #[derive(Clone, Copy, Debug, FromPrimitive, PartialEq, Eq)]
@@ -72,6 +74,7 @@ pub enum ProposalsOperationType {
   REVOKE = 1,
 }
 
+/// The status of the DAVE session.
 #[cfg_attr(feature = "napi", napi)]
 #[cfg_attr(feature = "pyo3", pyclass(eq, eq_int, rename_all = "snake_case"))]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

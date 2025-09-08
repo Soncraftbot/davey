@@ -32,6 +32,7 @@ pub const MAX_MISSING_NONCES: u64 = 1000;
 pub const GENERATION_WRAP: u32 = 1 << (8 * RATCHET_GENERATION_BYTES);
 pub const MAX_FRAMES_PER_SECOND: u64 = 50 + 2 * 60; // 50 audio frames + 2 * 60fps video streams
 
+/// The type of media being referenced.
 #[cfg_attr(feature = "napi", napi)]
 #[cfg_attr(feature = "pyo3", pyclass(eq, eq_int, rename_all = "snake_case"))]
 #[derive(Debug, Clone, Copy, Hash, PartialEq, Eq)]
@@ -40,6 +41,7 @@ pub enum MediaType {
   VIDEO = 1,
 }
 
+/// The type of codec being used.
 #[cfg_attr(feature = "napi", napi)]
 #[cfg_attr(feature = "pyo3", pyclass(eq, eq_int, rename_all = "snake_case"))]
 #[derive(Debug, Clone, Copy, PartialEq)]
