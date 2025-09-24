@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.1.7 - 2025-09-23
+
+### Added:
+
+- Added support for H264 decryption.
+
 ## 0.1.6 - 2025-06-10
 
 ### Fixed:
