@@ -12,7 +12,7 @@ pub fn generate_displayable_code(
     return Err(DisplayableCodeError::DataLessThanDesiredLength);
   }
 
-  if desired_length % group_size != 0 {
+  if !desired_length.is_multiple_of(group_size) {
     return Err(DisplayableCodeError::DesiredLengthNotMultipleOfGroupSize);
   }
 
