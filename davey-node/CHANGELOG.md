@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.1.8 - 2025-11-17
+
+### Fixed:
+
+- Fixed an issue with setting passthrough mode not properly setting the expiry.
+
 ## 0.1.7 - 2025-09-23
 
 ### Added:
