@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
+## 0.1.2 - 2025-12-19
+
+### Added:
+
+Support for H265, VP8, VP9 and AV1 encryption.
+
 ## 0.1.8 - 2025-11-17
 
 ### Fixed:
@@ -14,7 +20,7 @@ All notable changes to this project will be documented in this file.
 
 ### Added:
 
-- Added support for H264 decryption.
+- Added support for H264 encryption.
 
 ## 0.1.6 - 2025-06-10
 
