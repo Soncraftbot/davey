@@ -4,7 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Unreleased
 
-## 0.1.2 - 2025-12-19
+## 0.1.10 - 2026-03-02
+
+### Fixed:
+
+Updated the internal OpenMLS dependency to fix a high severity vulnerability: https://github.com/advisories/GHSA-8x3w-qj7j-gqhf
+
+## 0.1.9 - 2025-12-19
 
 ### Added:
 
